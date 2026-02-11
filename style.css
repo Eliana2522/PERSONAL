@@ -1,0 +1,374 @@
+@import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #fcfcfc; /* Creamy White */
+  }
+
+  .hearts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  .heart {
+    position: absolute;
+    bottom: -20px; /* Start from bottom */
+    width: 20px;
+    height: 20px;
+    background: #b71c1c; /* Deep Red */
+    transform: rotate(-45deg);
+    animation: fly 10s linear infinite;
+  }
+
+  .heart::before,
+  .heart::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #b71c1c; /* Deep Red */
+    border-radius: 50%;
+  }
+
+  .heart::before {
+    top: -10px;
+    left: 0;
+  }
+
+  .heart::after {
+    top: 0;
+    left: 10px;
+  }
+
+  @keyframes fly {
+    0% {
+      transform: translateY(0) rotate(-45deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-100vh) rotate(-45deg);
+      opacity: 0;
+    }
+  }
+  
+  .hero {
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+  }
+
+  .hero-video-bg-blurred {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(10px); /* Adjust blur amount as needed */
+    transform: scale(1.05); /* Slightly scale to hide edges */
+    z-index: -3; /* Behind everything */
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.3);
+    z-index: -2; /* Between blurred background and foreground content */
+  }
+
+  .hero-foreground-content {
+    position: relative;
+    z-index: 1; /* Above the overlay */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-video-main {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Main video remains contained */
+    max-width: 80%; /* Adjust as needed for main video size */
+    max-height: 80vh; /* Adjust as needed for main video size */
+    margin: auto; /* Center the main video */
+    z-index: 1; /* Above the blurred background and overlay */
+  }
+
+  .hero-text {
+    z-index: 2; /* Above the main video */
+    position: absolute; /* Position text over the video */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for exact centering */
+    width: 100%; /* Ensure text takes full width for centering */
+  }
+
+  .hero h1, .story h2, .hero .lead {
+    font-family: 'Parisienne', cursive;
+  }
+  
+  .counter-section {
+    background: linear-gradient(135deg, #f3e5f5 0%, #ede7f6 100%); /* Gradient background */
+    color: #880e4f; /* Burgundy */
+    padding: 80px 20px;
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Subtle shadow */
+    margin: 40px auto; /* Center the section */
+    max-width: 900px; /* Limit width */
+  }
+
+  .counter-section .counter-header {
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .counter-section .love-icon-large {
+    font-size: 4rem; /* Larger emoji */
+    line-height: 1; /* Adjust line height */
+    margin-bottom: 10px;
+  }
+
+  .counter-section .lead {
+    font-family: 'Parisienne', cursive; /* Apply special font */
+    font-size: 1.5rem;
+  }
+
+  .counter-section .days-display #days {
+    font-size: 7rem; /* Even larger for the number */
+    font-weight: bold;
+    letter-spacing: 2px;
+    animation: pulse 2s infinite; /* Simple animation for the number */
+    color: #b71c1c; /* Deep Red */
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+
+  .counter-divider {
+    border: 0;
+    height: 2px;
+    background-image: linear-gradient(to right, rgba(183, 28, 28, 0), rgba(183, 28, 28, 0.75), rgba(183, 28, 28, 0)); /* Gradient divider */
+    width: 50%; /* Make it shorter */
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .counting-text {
+    font-family: 'Segoe UI', sans-serif; /* Use a more standard font for this */
+    font-size: 1.2rem;
+    color: #333333; /* Muted color */
+  }
+  
+  .story {
+    background: #f3e5f5; /* Pale Lavender */
+  }
+  
+  .story h2 {
+    color: #880e4f; /* Burgundy */
+  }
+
+  /* Story Cards Enhancements */
+  .story .card {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+
+  .story .card:hover {
+    transform: translateY(-5px); /* Lift effect */
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2); /* Enhanced shadow */
+  }
+
+  .story .card-img-top {
+    width: 100%; /* Make image take full width of its container */
+    height: 300px; /* Consistent height for organization, increased size */
+    object-fit: contain; /* Ensure entire image is visible without cropping */
+    filter: grayscale(100%); /* Apply grayscale filter */
+    transition: filter 0.3s ease-in-out, transform 0.3s ease-in-out; /* Smooth transition */
+  }
+
+  .story .card-img-top:hover {
+    filter: grayscale(0%); /* Remove grayscale on hover */
+    transform: scale(1.05); /* Slight zoom on hover */
+  }
+  .story .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Push text to bottom if needed */
+  }
+
+  .story .card-text {
+    font-style: italic; /* A bit more personal */
+    color: #555;
+  }
+  
+  .card {
+    border: none;
+    box-shadow: 0 10px 30px rgba(0,0,0,.1);
+  }
+  
+  .code-love {
+    background: #f3e5f5; /* Pale Lavender */
+    padding: 50px 20px; /* More padding */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08); /* Subtle shadow */
+    margin: 40px auto; /* Centered with vertical margin */
+    max-width: 800px; /* Limit width for better appearance */
+  }
+  
+  .code-love pre {
+    color: #880e4f; /* Burgundy */
+    background: transparent;
+    border: none;
+    padding: 0;
+    font-size: 1.2rem; /* Slightly larger code font */
+  }
+  
+  .main-footer {
+    background-color: #fcfcfc; /* Match body background for seamless look */
+    color: #333333; /* Dark gray for good readability */
+    padding: 1.5rem 1rem; /* Reduced padding */
+    border-top: 1px solid #e0e0e0; /* Very subtle light gray border */
+    font-size: 0.9rem; /* Slightly smaller text */
+    margin-top: 40px; /* Slightly reduced margin from above section */
+  }
+
+/* New Paragraph Section Styles */
+.new-paragraph-section {
+  background: #f3e5f5; /* Pale Lavender */
+  color: #880e4f; /* Burgundy */
+  padding: 80px 20px;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.new-paragraph-section h2 {
+  font-family: 'Parisienne', cursive;
+  margin-bottom: 20px;
+}
+
+.new-paragraph-section p {
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+
+/* Splash Screen Styles */
+#splash-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #f3e5f5 0%, #ede7f6 100%); /* Pale Lavender gradient */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 1000; /* Ensure it's on top */
+  color: #880e4f; /* Burgundy for text */
+  font-family: 'Segoe UI', sans-serif;
+  transition: opacity 0.5s ease-out; /* Smooth fade-out */
+}
+
+#splash-screen.fade-out {
+  opacity: 0;
+  pointer-events: none; /* Disable interaction after fade out */
+}
+
+.splash-content {
+  max-width: 500px;
+  padding: 30px;
+  border-radius: 15px;
+  background-color: #fcfcfc; /* Creamy White */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  animation: slideIn 0.8s ease-out forwards;
+}
+
+.splash-content h1 {
+  font-family: 'Parisienne', cursive;
+  margin-bottom: 20px;
+  font-size: 2.5rem;
+  color: #b71c1c; /* Deep Red */
+}
+
+.splash-content .lead {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+}
+
+#keyword-input {
+  border: 2px solid #ede7f6;
+  border-radius: 8px;
+  padding: 10px 15px;
+  font-size: 1.1rem;
+  color: #333333;
+}
+
+#keyword-input:focus {
+  border-color: #b71c1c;
+  box-shadow: 0 0 0 0.25rem rgba(183, 28, 28, 0.25); /* Bootstrap-like focus effect */
+}
+
+#enter-button {
+  background-color: #b71c1c; /* Deep Red */
+  border-color: #b71c1c;
+  font-size: 1.2rem;
+  padding: 12px 30px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+#enter-button:hover {
+  background-color: #880e4f; /* Burgundy on hover */
+  border-color: #880e4f;
+}
+
+#error-message {
+  color: #b71c1c; /* Deep Red for error */
+  font-weight: bold;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scroll Animations */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Optional: Staggered effect for children of an animated element */
+.animate-on-scroll.is-visible > * {
+  transition-delay: 0.2s; /* Adjust as needed */
+}
