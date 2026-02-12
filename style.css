@@ -195,12 +195,12 @@ body {
   }
 
   .story .card-img-top {
-    width: 100%; /* Make image take full width of its container */
+    width: 80%; /* Reduce image width */
+    margin: 0 auto; /* Center the image */
     height: 300px; /* Consistent height for organization, increased size */
     filter: grayscale(100%); /* Apply grayscale filter */
     transition: filter 0.3s ease-in-out, transform 0.3s ease-in-out; /* Smooth transition */
   }
-
   .story .card-img-top:hover {
     filter: grayscale(0%); /* Remove grayscale on hover */
     transform: scale(1.05); /* Slight zoom on hover */
@@ -265,6 +265,7 @@ body {
   max-width: 800px;
   margin: 0 auto;
   line-height: 1.6;
+  text-align: justify;
 }
 
 
