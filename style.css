@@ -367,4 +367,154 @@ body {
   transition-delay: 0.2s; /* Adjust as needed */
 }
 
+/* Timeline Styles */
+.timeline-section {
+  background: linear-gradient(135deg, #f3e5f5 0%, #ede7f6 100%);
+  color: #333333;
+  padding: 80px 20px;
+}
+
+.timeline-section h2 {
+  font-family: 'Parisienne', cursive;
+  color: #880e4f;
+}
+
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* The actual timeline (vertical ruler) */
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  background-color: #b71c1c; /* Deep Red */
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -3px;
+  border-radius: 3px;
+}
+
+/* Container for timeline items */
+.timeline-item {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+}
+
+/* The circles on the timeline */
+.timeline-dot {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: -17px;
+  background-color: #f3e5f5; /* Pale Lavender */
+  border: 4px solid #b71c1c; /* Deep Red */
+  top: 15px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* Place the timeline items to the left (by default) */
+.timeline-item.left {
+  left: 0;
+}
+
+/* Place the timeline items to the right */
+.timeline-item.right {
+  left: 50%;
+}
+
+/* Add arrows to the left timeline items (pointing right) */
+.timeline-item.left::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  right: 30px;
+  border: medium solid #fcfcfc; /* Creamy White */
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent #fcfcfc;
+}
+
+/* Add arrows to the right timeline items (pointing left) */
+.timeline-item.right::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  left: 30px;
+  border: medium solid #fcfcfc; /* Creamy White */
+  border-width: 10px 10px 10px 0;
+  border-color: transparent #fcfcfc transparent transparent;
+}
+
+/* Fix the circle for right timeline items */
+.timeline-item.right .timeline-dot {
+  left: -16px;
+}
+
+/* The actual timeline content */
+.timeline-content {
+  padding: 20px 30px;
+  background-color: #fcfcfc; /* Creamy White */
+  position: relative;
+  border-radius: 6px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.timeline-content h3 {
+  color: #880e4f; /* Burgundy */
+  font-family: 'Parisienne', cursive;
+  margin-bottom: 10px;
+}
+
+.timeline-content p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Media queries for smaller screens */
+@media screen and (max-width: 768px) {
+  /* Make all timeline items go to the left */
+  .timeline::after {
+    left: 31px;
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 25px;
+  }
+
+  .timeline-item.right {
+    left: 0%;
+  }
+
+  /* Fix the arrows for all items */
+  .timeline-item.left::before,
+  .timeline-item.right::before {
+    left: 60px;
+    border: medium solid #fcfcfc;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent #fcfcfc transparent transparent;
+  }
+
+  /* Fix the dots for all items */
+  .timeline-item.left .timeline-dot,
+  .timeline-item.right .timeline-dot {
+    left: 15px;
+  }
+}
+
+
 
