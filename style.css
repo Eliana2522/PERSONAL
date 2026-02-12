@@ -307,11 +307,6 @@ body {
   color: #b71c1c; /* Deep Red */
 }
 
-.splash-content .lead {
-  font-size: 1.1rem;
-  margin-bottom: 30px;
-}
-
 #keyword-input {
   border: 2px solid #ede7f6;
   border-radius: 8px;
@@ -371,3 +366,5 @@ body {
 .animate-on-scroll.is-visible > * {
   transition-delay: 0.2s; /* Adjust as needed */
 }
+
+
