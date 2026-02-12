@@ -83,26 +83,3 @@ const observer = new IntersectionObserver(observerCallback, observerOptions);
 elementsToAnimate.forEach(element => {
   observer.observe(element);
 });
-
-// Swiper Initialization
-var swiper = new Swiper(".swiper", {
-  slidesPerView: 1,
-  spaceBetween: 30,
-  loop: true,
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-  autoplay: {
-    delay: 4000, // 4 seconds
-    disableOnInteraction: false,
-  },
-  effect: "fade", // Add a fade effect for smoother transitions
-  fadeEffect: {
-    crossFade: true,
-  },
-});
